@@ -39,17 +39,24 @@ created earlier.  The command does support clear messages, so go ahead
 and check that option if you like.
 
 Now on the ``Content`` tab of the notification paste the following
-into the ``Command`` field:: bash
+into the ``Command`` field:
 
-zenoss-hipchat --device="${evt/device}" --info=${evt/summary} --component="${evt/component}" --severity=${evt/severity} --url="${urls/eventUrl}" --message=${evt/message}
+.. code-block:: bash
 
-And if you want to use the clear option, for the clear command:: bash
+    zenoss-hipchat --device="${evt/device}" --info=${evt/summary} --component="${evt/component}" --severity=${evt/severity} --url="${urls/eventUrl}" --message=${evt/message}
 
-zenoss-hipchat --device="${evt/device}" --info=${evt/summary} --component="${evt/component}" --severity=${evt/severity} --url="${urls/eventUrl}" --message=${evt/message} --cleared-by="${evt/clearid}" --clear
+And if you want to use the clear option, for the clear command:
 
-You also need to provide the room and API token using the ``Environment variables`` field with something like:: bash
+.. code-block:: bash
 
-HIPCHAT_TOKEN=<APIv1 Token>;HIPCHAT_ROOM=<Room Name (or ID) to post to>
+    zenoss-hipchat --device="${evt/device}" --info=${evt/summary} --component="${evt/component}" --severity=${evt/severity} --url="${urls/eventUrl}" --message=${evt/message} --cleared-by="${evt/clearid}" --clear
+
+You also need to provide the room and API token using the
+``Environment variables`` field with something like:
+
+.. code-block:: bash
+
+    HIPCHAT_TOKEN=<APIv1 Token>;HIPCHAT_ROOM=<Room Name (or ID) to post to>
 
 replacing the values with ones appropriate for you.
 
