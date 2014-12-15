@@ -29,7 +29,7 @@ class HipChatEvent(object):
         ('red', 'Crit'),
     ]
 
-    NOTIFY_SEVERITY = 4
+    NOTIFY_SEVERITY = config.NOTIFY_SEVERITY
 
     def __init__(
             self, device, info, component, severity,
@@ -88,8 +88,8 @@ class HipChatEvent(object):
         Determine if we should set the notify flag in HipChat call
         """
         if self.severity >= self.NOTIFY_SEVERITY:
-            return True
-        return False
+            return 1
+        return 0
 
     def send(self):
         """
