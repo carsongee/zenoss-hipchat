@@ -13,3 +13,4 @@ HIPCHAT_API_V1_ENDPOINT = os.environ.get(
 )
 HIPCHAT_FROM = os.environ.get('HIPCHAT_FROM', 'Zenoss')
 REQUEST_TIMEOUT = os.environ.get('HIPCHAT_TIMEOUT', 3)
+NOTIFY_SEVERITY = os.environ.get('HIPCHAT_NOTIFY_SEVERITY', 4)

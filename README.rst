@@ -60,3 +60,20 @@ You also need to provide the room and API token using the
 
 replacing the values with ones appropriate for you.
 
+
+Additional Environment Variables
+--------------------------------
+
+In addition to ``HIPCHAT_TOKEN`` and ``HIPCHAT_ROOM`` which are
+required, you can also override other options with the following
+optional environment variables:
+
+- ``HIPCHAT_API_V1_ENDPOINT`` - Allows you to override the API
+  endpoint if you are using private HipChat
+- ``HIPCHAT_FROM`` - Defaults to Zenoss, and determines who the
+  messages appear to be coming from.
+- ``HIPCHAT_TIMEOUT`` - Defaults to 3 seconds, but if you have a slow
+  connection to the HipChat server it can be increased or decreased.
+- ``HIPCHAT_NOTIFY_SEVERITY`` - Defaults to Error and above (4), but
+  can raised or lowered and determines which events trigger the
+  HipChat notification.

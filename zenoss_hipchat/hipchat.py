@@ -29,7 +29,7 @@ class HipChatEvent(object):
         ('red', 'Crit'),
     ]
 
-    NOTIFY_SEVERITY = 4
+    NOTIFY_SEVERITY = config.NOTIFY_SEVERITY
 
     def __init__(
             self, device, info, component, severity,
