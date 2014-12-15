@@ -88,8 +88,8 @@ class HipChatEvent(object):
         Determine if we should set the notify flag in HipChat call
         """
         if self.severity >= self.NOTIFY_SEVERITY:
-            return True
-        return False
+            return 1
+        return 0
 
     def send(self):
         """
