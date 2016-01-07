@@ -19,7 +19,7 @@ def entry_point():
     parser = argparse.ArgumentParser(
         prog='zenoss_hipchat',
         description=('Converts arguments into templated strings and uses '
-                     'HipChat APIv1 to send the event to a HipChat room '
+                     'HipChat APIv2 to send the event to a HipChat room '
                      'specified by the environment variable HIPCHAT_ROOM '
                      'and the API token in the environment variable '
                      'HIPCHAT_TOKEN')
@@ -49,7 +49,7 @@ def entry_point():
 
     args = parser.parse_args()
 
-    if not config.HIPCHAT_API_V1_TOKEN and not config.HIPCHAT_ROOM_ID:
+    if not config.HIPCHAT_API_V2_TOKEN and not config.HIPCHAT_ROOM_ID:
         print('Environment variable "HIPCHAT_TOKEN" and "HIPCHAT_ROOM" '
               'must be specified and valid before this command can be run')
         sys.exit(-1)

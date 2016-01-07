@@ -14,7 +14,7 @@ either:
 
 for the latest release, or
 
-``pip install -e git+https://github.com/carsongee/zenoss-hipchat#egg=zenoss-hipchat``
+``pip install -e git+https://github.com/pdxmaverick/zenoss-hipchat#egg=zenoss-hipchat``
 
 for the latest development version.
 
@@ -56,7 +56,7 @@ You also need to provide the room and API token using the
 
 .. code-block:: bash
 
-    HIPCHAT_TOKEN=<APIv1 Token>;HIPCHAT_ROOM=<Room Name (or ID) to post to>
+    HIPCHAT_TOKEN=<APIv2 Token>;HIPCHAT_ROOM=<Room Name (or ID) to post to>
 
 replacing the values with ones appropriate for you.
 
@@ -68,7 +68,7 @@ In addition to ``HIPCHAT_TOKEN`` and ``HIPCHAT_ROOM`` which are
 required, you can also override other options with the following
 optional environment variables:
 
-- ``HIPCHAT_API_V1_ENDPOINT`` - Allows you to override the API
+- ``HIPCHAT_API_V2_ENDPOINT`` - Allows you to override the API
   endpoint if you are using private HipChat
 - ``HIPCHAT_FROM`` - Defaults to Zenoss, and determines who the
   messages appear to be coming from.
