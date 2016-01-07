@@ -26,7 +26,7 @@ class HipChatEvent(object):
         ('purple', 'Info'),
         ('yellow', 'Warn'),
         ('yellow', 'Error'),
-        ('red', 'Crit'),
+        ('red', 'Critical'),
     ]
 
     NOTIFY_SEVERITY = config.NOTIFY_SEVERITY
@@ -55,10 +55,10 @@ class HipChatEvent(object):
         }
         self.session.params = {
             'format': 'json',
-            'auth_token': config.HIPCHAT_API_V1_TOKEN
+            'auth_token': config.HIPCHAT_API_V2_TOKEN
         }
-        self.post_url = 'https://{0}/v1/rooms/message'.format(
-            config.HIPCHAT_API_V1_ENDPOINT
+        self.post_url = 'https://{0}/v2/room/{1}/notification'.format(
+            config.HIPCHAT_API_V2_ENDPOINT, config.HIPCHAT_ROOM_ID
         )
 
     def _event_message(self):
@@ -88,8 +88,8 @@ class HipChatEvent(object):
         Determine if we should set the notify flag in HipChat call
         """
         if self.severity >= self.NOTIFY_SEVERITY:
-            return 1
-        return 0
+            return True
+        return False
 
     def send(self):
         """
@@ -101,14 +101,13 @@ class HipChatEvent(object):
         else:
             message = self._clear_message()
 
-        from_name = "{0} ({1})".format(
+        from_name = "{1}".format(
             config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
         )
 
         response = self.session.post(
             url=self.post_url,
             data={
-                'room_id': config.HIPCHAT_ROOM_ID,
                 'from': from_name,
                 'message_format': 'html',
                 'notify': self._should_notify(),
