@@ -33,7 +33,7 @@ class HipChatEvent(object):
 
     def __init__(
             self, device, info, component, severity,
-            url, message, cleared_by, clear=False
+            url, message, cleared_by, clear=False, debug=False
     ):
         """
         Setup session and properties
@@ -95,7 +95,7 @@ class HipChatEvent(object):
         """
         Send off the message to environment room with a nice template
         """
-
+        print(self.post_url)
         if not self.clear:
             message = self._event_message()
         else:
@@ -116,5 +116,7 @@ class HipChatEvent(object):
             },
             timeout=config.REQUEST_TIMEOUT
         )
+        print(self.session.__dict__)
+        print(self.session.params)
         if response.status_code != 204:
             raise HipChatEventSendException(response.text)
