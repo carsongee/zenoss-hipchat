@@ -116,5 +116,5 @@ class HipChatEvent(object):
             },
             timeout=config.REQUEST_TIMEOUT
         )
-        if response.status_code != 200:
+        if response.status_code != 204:
             raise HipChatEventSendException(response.text)
