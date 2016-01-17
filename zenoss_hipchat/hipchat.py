@@ -95,12 +95,20 @@ class HipChatEvent(object):
         """
         Send off the message to environment room with a nice template
         """
-        print(self.post_url)
         if not self.clear:
             message = self._event_message()
         else:
             message = self._clear_message()
 
+        if config.HIPCHAT_FROM == '':
+            from_name = "{0}".format(
+            self.SEVERITY_MAP[self.severity][1]
+        )
+        else:
+            from_name = "{0} ({1})".format(
+            config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
+        )
+        
         from_name = "{1}".format(
             config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
         )

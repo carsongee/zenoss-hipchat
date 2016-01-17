@@ -5,4 +5,4 @@ other scenarios.
 """
 
 
-VERSION = '2.0.0'
+VERSION = '0.3.0'
