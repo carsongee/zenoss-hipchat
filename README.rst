@@ -14,7 +14,7 @@ either:
 
 for the latest release, or
 
-``pip install -e git+https://github.com/pdxmaverick/zenoss-hipchat#egg=zenoss-hipchat``
+``pip install -e git+https://github.com/carsongee/zenoss-hipchat#egg=zenoss-hipchat``
 
 for the latest development version.
 
