@@ -109,10 +109,6 @@ class HipChatEvent(object):
             config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
         )
         
-        from_name = "{1}".format(
-            config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
-        )
-
         response = self.session.post(
             url=self.post_url,
             data={
