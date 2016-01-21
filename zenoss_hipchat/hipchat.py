@@ -102,13 +102,13 @@ class HipChatEvent(object):
 
         if config.HIPCHAT_FROM == '':
             from_name = "{0}".format(
-            self.SEVERITY_MAP[self.severity][1]
-        )
+                self.SEVERITY_MAP[self.severity][1]
+            )
         else:
             from_name = "{0} ({1})".format(
-            config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
-        )
-        
+                config.HIPCHAT_FROM, self.SEVERITY_MAP[self.severity][1]
+            )
+
         response = self.session.post(
             url=self.post_url,
             data={
